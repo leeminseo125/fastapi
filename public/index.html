@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloudtype - FastAPI</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
-  <link rel="icon" href="img/favicon.ico">
-</head>
-<body>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <img src="img/fastapi.svg" class="w-36 rounded-lg md:ml-5 lg:ml-5"  alt="FastAPI"/>
-    <div>
-      <h1 class="text-5xl font-bold">FastAPI</h1>
-      <p class="py-6">클라우드타입에서 배포한 FastAPI 어플리케이션입니다.</p>
-      <button type="button" onclick="window.open('https://github.com/cloudtype-examples/fastapi')" class="btn btn-outline rounded">
-        GitHub
-      </button>
-      <button type="button" onclick="window.open('https://docs.cloudtype.io/')" class="btn btn-outline rounded">
-        Docs
-      </button>
-      <button type="button" onclick="window.open('https://discord.gg/U7HX4BA6hu')" class="btn btn-outline rounded">
-        Discord
-      </button>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Image Classification App</title>    
+    <script>
+      if (window.process && process.versions['electron']) {
+        document.write('<link rel="icon" type="image/png" href="favicon.ico">');
+      } else {
+        document.write('<link rel="icon" type="image/png" href="/static/favicon.ico">');
+      }
+    </script>
+    <script>
+      if (window.process && process.versions['electron']) {
+        document.write('<link rel="stylesheet" href="styles.css">');
+      } else {
+        document.write('<link rel="stylesheet" href="/static/styles.css">');
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1>Image Classification</h1>
+    <form id="upload-form">
+        <input type="file" id="file-input" accept="image/*" required>
+        <button type="submit">Upload and Classify</button>
+    </form>
+    <div id="result">
+      <img id="preview" style="display: none;">
+      <p id="classification-result"></p>
     </div>
-  </div>
-</div>
-</body>
+
+    <script>
+      if (window.process && process.versions['electron']) {
+        document.write('<script src="renderer.js"><\/script>');
+      } else {
+        document.write('<script src="/static/renderer.js"><\/script>');
+      }
+    </script>
+  </body>
+
 </html>
